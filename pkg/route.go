@@ -20,6 +20,9 @@ func (rc *RouteCollection) HasNext() bool {
 }
 
 func (rc *RouteCollection) Next() *Route {
+	if !rc.HasNext() {
+		return nil
+	}
 	route := rc.Routes[rc.index]
 	rc.index++
 	return route
